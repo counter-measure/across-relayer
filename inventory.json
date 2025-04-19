@@ -1,0 +1,28 @@
+{
+    "wrapEtherTarget": 0.1,
+    "wrapEtherThreshold": 0.125,
+    "wrapEtherTargetPerChain": { "1": 1.25 },
+    "wrapEtherThresholdPerChain": { "1": 2 },
+    "tokenConfig": {
+      "WETH": {
+        "1": { "targetPct": 100, "thresholdPct": 100, "unwrapWethThreshold": 0.25, "unwrapWethTarget": 1.25 },
+        "10": { "targetPct": 8, "thresholdPct": 5, "unwrapWethThreshold": 0.025, "unwrapWethTarget": 0.1 },
+        "137": { "targetPct": 8, "thresholdPct": 5 },
+        "42161": { "targetPct": 8, "thresholdPct": 5, "unwrapWethThreshold": 0.025, "unwrapWethTarget": 0.1 }
+      },
+      "DAI": {
+        "10": { "targetPct": 8, "thresholdPct": 5 },
+        "137": { "targetPct": 8, "thresholdPct": 5 },
+        "42161": { "targetPct": 8, "thresholdPct": 5 }
+      },
+      "USDC": {
+        "10": { "targetPct": 8, "thresholdPct": 5 },
+        "42161": { "targetPct": 8, "thresholdPct": 5 }
+      },
+      "WBTC": {
+        "10": { "targetPct": 8, "thresholdPct": 5 },
+        "137": { "targetPct": 8, "thresholdPct": 5 },
+        "42161": { "targetPct": 8, "thresholdPct": 5 }
+      }
+    }
+  }
