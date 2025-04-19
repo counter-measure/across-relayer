@@ -530,6 +530,18 @@ export class InventoryClient {
       // equivalents of l1Token on all chains.
       const cumulativeVirtualBalancePostRefunds = cumulativeVirtualBalance.add(cumulativeRefunds);
 
+      // If there are no balances or refunds across any chain, we can't compute an allocation percentage
+      if (cumulativeVirtualBalancePostRefunds.eq(bnZero)) {
+        this.logger.debug({
+          at: "InventoryClient#determineRefundChainId",
+          message: "No balances or refunds found across any chain, using default chain",
+          l1Token,
+          originChainId,
+          destinationChainId,
+        });
+        return [deposit.fromLiteChain ? originChainId : destinationChainId];
+      }
+
       // Compute what the balance will be on the target chain, considering this relay and the finalization of the
       // transfers that are currently flowing through the canonical bridge.
       const expectedPostRelayAllocation = chainVirtualBalanceWithShortfallPostRelay
